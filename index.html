@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#151719">
+    <title>LANCER GAME | Batalla de conocimientos</title>
+    <link rel="stylesheet" href="estilo/css.css">
+</head>
+<body>
+    <div class="fondo-industrial" aria-hidden="true"></div>
+
+    <header class="hero">
+        <div class="insignia" aria-hidden="true"><span>LG</span></div>
+        <div class="hero-copy">
+            <p class="eyebrow">CENTRO DE COMBATE ACADÉMICO</p>
+            <h1>LANCER <span>GAME</span></h1>
+            <p class="subtitulo">UNA BATALLA DE CONOCIMIENTOS</p>
+        </div>
+        <div class="hero-status">
+            <span class="status-dot"></span>
+            <span>6 EQUIPOS EN LÍNEA</span>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="zona-juego">
+            <div class="barra-seccion">
+                <div>
+                    <p class="eyebrow">TABLERO PRINCIPAL</p>
+                    <h2>Selecciona tu desafío</h2>
+                </div>
+                <div class="acciones-partida">
+                    <div class="progreso-wrap">
+                        <span id="progresoTexto">0 / 30 preguntas</span>
+                        <div class="progreso"><span id="progresoBarra"></span></div>
+                    </div>
+                    <button id="reiniciar" class="btn-secundario" type="button">Nueva partida</button>
+                </div>
+            </div>
+
+            <div class="instruccion">
+                <span class="instruccion-icono">!</span>
+                <p>Selecciona una materia y una puntuación. Después elige qué equipo responderá.</p>
+            </div>
+
+            <div class="tablero-marco">
+                <div class="tablero" id="tablero" aria-label="Tablero de preguntas"></div>
+            </div>
+
+            <div class="leyenda">
+                <span><i class="leyenda-disponible"></i> Disponible</span>
+                <span><i class="leyenda-usada"></i> Contestada</span>
+                <span><i class="leyenda-puntos"></i> Puntos por pregunta</span>
+            </div>
+        </section>
+
+        <aside class="panel-equipos">
+            <div class="panel-titulo">
+                <p class="eyebrow">UNIDADES DE COMBATE</p>
+                <h2>Marcador</h2>
+            </div>
+            <div id="equipos" class="lista-equipos"></div>
+            <div class="nota-marcador">
+                <strong>Control de puntos</strong>
+                <p>Usa +10 o −10 para corregir el marcador manualmente.</p>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="pie">
+        <span>LANCER GAME</span>
+        <span>ESTRATEGIA · CONOCIMIENTO · VICTORIA</span>
+        <span>PROYECTO LANCER EQUIPO 3</span>
+    </footer>
+
+    <div id="modal" class="modal" aria-hidden="true">
+        <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="preguntaTexto">
+            <button id="cerrarModal" class="modal-cerrar" type="button" aria-label="Cerrar">×</button>
+            <div class="modal-topline">
+                <span id="modalMateria" class="modal-materia">MATERIA</span>
+                <span id="modalValor" class="modal-valor">50 PTS</span>
+            </div>
+            <p class="eyebrow">PREGUNTA DE COMBATE</p>
+            <h2 id="preguntaTexto">Pregunta</h2>
+
+            <label class="label-equipo" for="equipoTurno">Equipo que responderá</label>
+            <select id="equipoTurno" class="select-equipo"></select>
+
+            <div id="opciones" class="opciones"></div>
+            <div id="resultado" class="resultado" aria-live="polite"></div>
+            <div id="accionesManual" class="acciones-manual" hidden>
+                <p>El documento no identifica una respuesta correcta. El moderador debe validar el resultado.</p>
+                <button id="manualAcierto" class="btn-acierto" type="button">Asignar puntos</button>
+                <button id="manualSinPuntos" class="btn-secundario" type="button">No otorgar puntos</button>
+            </div>
+            <button id="volverTablero" class="btn-volver" type="button">Volver al tablero</button>
+        </section>
+    </div>
+
+    <div id="modalFinal" class="modal modal-final" aria-hidden="true">
+        <section class="modal-panel final-panel" role="dialog" aria-modal="true" aria-labelledby="tituloFinal">
+            <p class="eyebrow">FIN DE LA PARTIDA</p>
+            <h2 id="tituloFinal">¡MISIÓN COMPLETADA!</h2>
+            <p id="ganadorTexto"></p>
+            <div id="rankingFinal" class="ranking-final"></div>
+            <button id="nuevaPartidaFinal" class="btn-volver" type="button">Jugar otra vez</button>
+        </section>
+    </div>
+    
+    <script src="javascript.js"></script>
+
+</body>
+</html>
